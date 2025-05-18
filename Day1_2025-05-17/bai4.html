@@ -1,0 +1,20 @@
+<html></html>
+<head></head>
+<body>
+    <script>
+        var n=parseInt(prompt('Nhập n:'));
+        var tong=0;
+        var i=1;
+        function tongSoLe(n) {
+            while (i<=n) {
+                if (i%2==1) {
+                    tong+= i;
+                }
+                i++;
+            }
+            return tong;
+        }
+        var ketQua=tongSoLe(n);
+        document.write(ketQua);
+    </script>
+</body>
