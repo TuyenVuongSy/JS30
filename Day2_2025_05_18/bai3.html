@@ -1,0 +1,18 @@
+<html></html>
+<head>
+
+</head>
+<body>
+    <script>
+        var nam=parseInt(prompt('Nhập năm:'));
+        function laNamNhuan(nam) {
+            if ((nam%4==0 && nam%100!=0) || (nam%400==0)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        var ketQua=laNamNhuan(nam);
+        document.write(ketQua);
+    </script>
+</body>

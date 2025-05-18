@@ -1,0 +1,28 @@
+<html></html>
+<head></head>
+<body>
+    <script>
+        matKhau=prompt('Nhập mật khẩu:');
+        function kiemTraMatKhau(matKhau) {
+            if (matKhau.length<8) {
+                return false;
+            }
+            if (!/[A-Z]/.test(matKhau)) {
+                return false;
+            }
+            if (!/[a-z]/.test(matKhau)) {
+                return false;
+            }
+            if (!/\d/.test(matKhau)) {
+                return false;
+            }
+            return true;
+        }
+        var ketQua=kiemTraMatKhau(matKhau);
+        if (ketQua==true) {
+            document.write('Mật khẩu mạnh!');
+        } else {
+            document.write('Mật khẩu yếu! Vui lòng nhập lại');
+        }
+    </script>
+</body>
