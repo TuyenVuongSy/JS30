@@ -1,0 +1,26 @@
+<html></html>
+<head></head>
+<body>
+    <script>
+        var n=parseInt(prompt('Nhập n:'));
+        function fibonacci(n) {
+            var a=0;
+            var b=1;
+            var c;
+            if (n<=0) {
+                return 0;
+            }
+            if (n==1) {
+                return 1;
+            }
+            for (i=2; i<=n; i++) {
+                c=a+b;
+                a=b;
+                b=c;
+            }
+            return c;
+        }
+        var ketQua=fibonacci(n);
+        document.write(ketQua);
+    </script>
+</body>
