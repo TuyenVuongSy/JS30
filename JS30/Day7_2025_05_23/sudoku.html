@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1.0">
+    <style>
+        body {
+            display:flex;
+            flex-direction:column;
+            background-color: rgb(245, 232, 215);
+            grid-template-columns: repeat(3, 1fr); 
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+        .square-grid{
+            display:grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap:10px;
+            padding:5px;
+        }
+        .square-cell {
+            width:150px;
+            height:150px;
+            background-color: none;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid rgb(203, 190, 190);
+        }
+        .square-cell img{
+            width:120px;
+            height:120px;
+            background-color:white;
+        }
+        h1 {
+            grid-column: 1 / -1;
+        }
+        .empty-cell {
+            background-color: rgb(245, 232, 215);
+        }
+        .answer {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .answer h2{
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            grid-column: 1 / -1;
+        }
+        .answer-options {
+            display:flex;
+            gap:20px;
+        }
+        .answer-options img {
+            width:120px;
+            height:120px;
+            cursor:pointer;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sudoku Trái Cây</h1>
+    <section class="square-grid">
+        <div class="square-cell">
+            <img src="https://png.pngtree.com/png-clipart/20230414/original/pngtree-fresh-and-transparent-strawberry-fruit-png-image_9057037.png" alt="Dâu">
+        </div>
+        <div class="square-cell">
+            <img src="https://olm.vn/resources/H%C3%ACnh%20%E1%BA%A3nh%20-%20Huy%E1%BB%81n/cam.png" alt="Cam">
+        </div>
+        <div class="square-cell">
+            <img src="https://cdn.pixabay.com/photo/2024/04/05/09/01/ai-generated-8676957_640.png" alt="Nho">
+        </div>
+        <div class="square-cell">
+            <img src="https://cdn.pixabay.com/photo/2024/04/05/09/01/ai-generated-8676957_640.png" alt="Nho">
+        </div>
+        <div class="square-cell">
+            <img src="https://png.pngtree.com/png-clipart/20230414/original/pngtree-fresh-and-transparent-strawberry-fruit-png-image_9057037.png" alt="Dâu">
+        </div>
+        <div class="square-cell empty-cell">
+            
+        </div>
+        <div class="square-cell">
+            <img src="https://olm.vn/resources/H%C3%ACnh%20%E1%BA%A3nh%20-%20Huy%E1%BB%81n/cam.png" alt="Cam">
+        </div>
+        <div class="square-cell empty-cell">
+            
+        </div>
+        <div class="square-cell">
+            <img src="https://png.pngtree.com/png-clipart/20230414/original/pngtree-fresh-and-transparent-strawberry-fruit-png-image_9057037.png" alt="Dâu">
+        </div>
+    </section>
+    <div class="answer">
+        <h2>Ô đáp án</h2>
+        <section class="answer-options">
+            <img src="https://png.pngtree.com/png-clipart/20230414/original/pngtree-fresh-and-transparent-strawberry-fruit-png-image_9057037.png" alt="Dâu">
+            <img src="https://olm.vn/resources/H%C3%ACnh%20%E1%BA%A3nh%20-%20Huy%E1%BB%81n/cam.png" alt="Cam">
+            <img src="https://cdn.pixabay.com/photo/2024/04/05/09/01/ai-generated-8676957_640.png" alt="Nho">
+        </section>
+    </div>
+</body>
+</html>
