@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thay đổi ảnh nền</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container {
+            background: rgb(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        select {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid gray;
+            margin-bottom: 15px;
+            width: 250px;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: rgb(51, 173, 51);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: rgb(44, 144, 44);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Chọn ảnh nền trang</h2>
+        <select id="backgroundSelect">
+            <option value="url('https://mega.com.vn/media/news/0106_hinh-nen-4k-may-tinh11.jpg')">Biển</option>
+            <option value="url('https://phunugioi.com/wp-content/uploads/2020/03/hinh-nen-may-tinh-4k-thien-nhien-scaled.jpg')">Núi non</option>
+            <option value="url('https://3.bp.blogspot.com/-6DgKmEjT3io/WVpJk3yR34I/AAAAAAAAoZ8/dMR258cSu4UcLjxKafS9wqGMMgz1ZiOfACLcBGAs/s1600/58e427bdc98b5.jpg')">Hồ nước</option>
+        </select>
+        <button onclick="changeBackground()">Đổi ảnh nền</button>
+    </div>
+    <script>
+        function changeBackground() {
+            const select = document.getElementById('backgroundSelect');
+            const selectedValue = select.value;
+            document.body.style.backgroundImage = selectedValue;
+        }
+    </script>
+</body>
+</html>
