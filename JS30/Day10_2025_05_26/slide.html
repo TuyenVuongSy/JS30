@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trình chiếu slide bằng DOM</title>
+  <style>
+      .slide-container {
+          text-align: center;
+          padding: 20px;
+      }
+      .slide-img {
+        max-width: 80%;
+        border-radius: 10px;
+      }
+      .btn {
+        margin: 10px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        border: 1px solid gray;
+      }
+      button {
+        display: inline-block;
+        background-color: #bbb;
+        cursor: pointer;
+      }
+  </style>
+</head>
+<body>
+    <div class="slide-container">
+      <h2>Trình chiếu ảnh bằng DOM</h2>
+      <img src="https://mega.com.vn/media/news/0106_hinh-nen-4k-may-tinh11.jpg" class="slide-img" id="slideImg">
+      <div>
+        <button class="btn" onclick="prevSlide()">← Trước</button>
+        <button class="btn" onclick="nextSlide()">Sau →</button>
+      </div>
+    </div>
+    <script>
+        let slideIndex = 0;
+        const slides = [
+            "https://mega.com.vn/media/news/0106_hinh-nen-4k-may-tinh11.jpg",
+            "https://phunugioi.com/wp-content/uploads/2020/03/hinh-nen-may-tinh-4k-thien-nhien-scaled.jpg",
+            "https://3.bp.blogspot.com/-6DgKmEjT3io/WVpJk3yR34I/AAAAAAAAoZ8/dMR258cSu4UcLjxKafS9wqGMMgz1ZiOfACLcBGAs/s1600/58e427bdc98b5.jpg"
+        ];
+        const slideImg = document.getElementById('slideImg');
+        function showSlide(index) {
+          if (index >= slides.length) slideIndex = 0;
+          if (index < 0) slideIndex = slides.length -1;
+          slideImg.src = slides[slideIndex];
+        }
+        function nextSlide() {
+          slideIndex++;
+          showSlide(slideIndex);
+        }
+        function prevSlide() {
+          slideIndex--;
+          showSlide(slideIndex);
+        }
+        showSlide(slideIndex);
+    </script>
+</body>
+</html>
