@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "Dantri Title Changer",
+    "version": "1.0",
+    "description": "Changes the title of articles on dantri.com.vn",
+    "content_scripts": [
+      {
+        "matches": ["https://dantri.com.vn/"],
+        "js": ["content.js"]
+      }
+    ]
+  }
