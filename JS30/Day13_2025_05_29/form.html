@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form điền thông tin sinh viên</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding:20px;
+            width:300px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: green;
+            color: white;
+            padding : 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: green;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #7e7e7e;
+        } 
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Thêm sinh viên vào danh sách</h2>
+    <div class="container">
+        <div class="form-group">
+            <label for="studentId">Mã sinh viên:</label>
+            <input type="text" id="studentId" placeholder="Nhập mã sinh viên">
+        </div>
+        <div class="form-group">
+            <label for="name">Họ tên:</label>
+            <input type="text" id="name" placeholder="Nhập họ tên">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Nhập email">
+        </div>
+        <div class="form-group">
+            <label for="phone">Số điện thoại:</label>
+            <input type="text" id="phone" placeholder="Nhập số điện thoại">
+        </div>
+        <button onclick="addStudent()">Thêm</button>
+    </div>
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Mã sinh viên</th>
+                <th>Họ tên</th>
+                <th>Email</th>
+                <th>SĐT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>UDU001</td>
+                <td>Đặng Thái An</td>
+                <td>abc@gmail.com</td>
+                <td>0987654321</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function addStudent() {
+            const studentId = document.getElementById('studentId').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            if (!studentId || !name || !email || !phone) {
+                alert('Vui lòng nhập đầy đủ thông tin');
+                return;
+            }
+
+            const table = document.getElementById('studentTable').getElementsByTagName('tbody')[0];
+            const newRow = document.createElement('tr');
+
+            const cell1 = document.createElement('td');
+            cell1.textContent = studentId;
+            const cell2 = document.createElement('td');
+            cell2.textContent = name;
+            const cell3 = document.createElement('td');
+            cell3.textContent = email;
+            const cell4 = document.createElement('td');
+            cell4.textContent = phone;
+
+            newRow.appendChild(cell1);
+            newRow.appendChild(cell2);
+            newRow.appendChild(cell3);
+            newRow.appendChild(cell4);
+            
+            table.appendChild(newRow);
+
+            document.getElementById('studentId').value = '';
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+        }
+    </script>
+</body>
+</html>
