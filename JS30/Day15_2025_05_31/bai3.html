@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Product{
+            constructor(id, name, price, quantity) {
+                this.id =id;
+                this.name = name;
+                this.price = price;
+                this.quantity = quantity;
+            }
+            
+            displayInfo() {
+                return `ID: ${this.id}, Name: ${this.name}, Price: ${this.price}, Quantity: ${this.quantity}`;
+            }
+        }
+        let products = [];
+
+        function addProduct(id, name, price, quantity) {
+            const product = new Product(id, name, price, quantity);
+            products.push(product);
+            console.log(`Added product: ${product.displayInfo()}`);
+        }
+
+        function calculateTotalInventoryValue() {
+            const total = products.reduce((sum, product) => sum + (product.price * product.quantity), 0);
+            console.log(`Total Inventory Value: ${total}`);
+            return total;
+        }
+
+        function findMostExpensiveProduct() {
+            if (products.length === 0) {
+                console.log("No products available.");
+                return null;
+            }
+            const mostExpensive = products.reduce((max, product) => product.price > max.price ? product : max, products[0]);
+            console.log(`Most Expensive Product: ${mostExpensive.displayInfo()}`);
+            return mostExpensive;
+        }
+
+        console.log("=== Product Management ===");
+        
+        addProduct(1, "Laptop", 15000000, 10);
+        addProduct(2, "Phone", 8000000, 20);
+        addProduct(3, "Tablet", 10000000, 15);
+
+
+        calculateTotalInventoryValue();
+
+        findMostExpensiveProduct();
+    </script>
+</body>
+</html>
