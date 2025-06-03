@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 20px;
+            background-color: azure;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            background-color: antiquewhite;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: rgb(0, 128, 255);
+        }
+
+        button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            border-color: rgb(0, 128, 255);
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: rgb(1, 100, 199);
+        }
+
+        #searchBtn, #resetBtn {
+            background-color: rgb(0, 128, 255);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: rgb(240, 248, 255);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #d0d0d0;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #a3a3a3;
+            color: #333;
+        }
+
+        td {
+            color: #333;
+        }
+
+        .action-btn {
+            margin: 0 5px;
+            padding: 5px 10px;
+        }
+
+        .action-btn:nth-child(1) {
+            background-color: yellow;
+            color: #333;
+        }
+
+        .action-btn:nth-child(1):hover {
+            background-color: rgb(255, 200, 0);
+        }
+
+        .action-btn:nth-child(2) {
+            background-color: red;
+            color: white;
+        }
+
+        .action-btn:nth-child(2):hover {
+            background-color: rgb(182, 0, 0);
+        }
+
+        p {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .error {
+            background-color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Quản lý sản phẩm</h2>
+    <form id="productForm" onsubmit="return addProduct(event)">
+        <input type="number" id="id" placeholder="ID" required>
+        <input type="text" id="name" placeholder="Tên" required>
+        <input type="number" id="price" placeholder="Giá" required>
+        <input type="number" id="quantity" placeholder="Số lượng" required>
+        <button type="submit">Thêm</button>
+    </form>
+    <form id="searchForm" onsubmit="return searchProduct(event)">
+        <input type="number" id="searchId" placeholder="Nhập mã sản phẩm">
+        <button type="submit" id="searchBtn">Search</button>
+        <button type="button" id="resetBtn" onclick="resetSearch()">Reset</button>
+    </form>
+    <table id="productTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Tổng giá trị</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <p>Tổng giá trị tồn kho: <span id="totalValue">0 VND</span></p>
+    <p>Sản phẩm đắt nhất: <span id="mostExpensive"></span></p>
+
+    <script>
+        class Product {
+            constructor(id, name, price, quantity) {
+                this.id = id;
+                this.name = name;
+                this.price = price;
+                this.quantity = quantity;
+            }
+
+            displayInfo() {
+                return `ID: ${this.id}, Name: ${this.name}, Price: ${this.price}, Quantity: ${this.quantity}`;
+            }
+
+            getTotalValue() {
+                return this.price * this.quantity;
+            }
+        }
+
+        let products = [
+            new Product(1, "Iphone 11 Promax", 10000000, 3),
+            new Product(2, "Samsung A02s", 3700000, 4)
+        ];
+        let filteredProducts = [...products];
+
+        function updateTable(products = filteredProducts) {
+            const tbody = document.getElementById('productTable').getElementsByTagName('tbody')[0];
+            tbody.innerHTML = '';
+            products.forEach(product => {
+                const row = tbody.insertRow();
+                row.insertCell(0).textContent = product.id;
+                row.insertCell(1).textContent = product.name;
+                row.insertCell(2).textContent = `${product.price.toLocaleString()} VND`;
+                row.insertCell(3).textContent = product.quantity;
+                row.insertCell(4).textContent = `${product.getTotalValue().toLocaleString()} VND`;
+                const actionCell = row.insertCell(5);
+                const editBtn = document.createElement('button');
+                editBtn.textContent = 'Sửa';
+                editBtn.className = 'action-btn';
+                editBtn.onclick = () => editProduct(product.id);
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Xóa';
+                deleteBtn.className = 'action-btn';
+                deleteBtn.onclick = () => deleteProduct(product.id);
+                actionCell.appendChild(editBtn);
+                actionCell.appendChild(deleteBtn);
+            });
+            updateSummary(products);
+        }
+
+        function addProduct(event) {
+            event.preventDefault();
+            const id = parseInt(document.getElementById('id').value);
+            const name = document.getElementById('name').value.trim();
+            const price = parseInt(document.getElementById('price').value);
+            const quantity = parseInt(document.getElementById('quantity').value);
+
+            if (products.some(p => p.id === id)) {
+                alert('ID sản phẩm đã tồn tại. Vui lòng chọn ID khác!');
+                return false;
+            }
+            if (price <= 0 || quantity <= 0) {
+                alert('Giá và số lượng phải lớn hơn 0!');
+                return false;
+            }
+            if (!name) {
+                alert('Tên sản phẩm không được để trống!');
+                return false;
+            }
+
+            const product = new Product(id, name, price, quantity);
+            products.push(product);
+            filteredProducts = [...products];
+            updateTable();
+            document.getElementById('productForm').reset();
+            return false;
+        }
+
+        function editProduct(id) {
+            const product = products.find(p => p.id === id);
+            if (product) {
+                const newName = prompt('Nhập tên mới:', product.name)?.trim();
+                const newPrice = parseInt(prompt('Nhập giá mới:', product.price));
+                const newQuantity = parseInt(prompt('Nhập số lượng mới:', product.quantity));
+                if (newName && !isNaN(newPrice) && !isNaN(newQuantity) && newPrice > 0 && newQuantity > 0) {
+                    product.name = newName;
+                    product.price = newPrice;
+                    product.quantity = newQuantity;
+                    filteredProducts = [...products];
+                    updateTable();
+                } else {
+                    alert('Dữ liệu không hợp lệ! Tên không được để trống và giá/số lượng phải lớn hơn 0.');
+                }
+            }
+        }
+
+        function deleteProduct(id) {
+            if (confirm('Bạn có chắc muốn xóa sản phẩm này?')) {
+                products = products.filter(p => p.id !== id);
+                filteredProducts = [...products];
+                updateTable();
+            }
+        }
+
+        function updateSummary(productList = filteredProducts) {
+            const totalValue = productList.length > 0 ? productList.reduce((sum, p) => sum + p.getTotalValue(), 0) : 0;
+            document.getElementById('totalValue').textContent = `${totalValue.toLocaleString()} VND`;
+            const mostExpensive = productList.length > 0 ? productList.reduce((max, p) => p.price > max.price ? p : max, productList[0]) : null;
+            document.getElementById('mostExpensive').textContent = mostExpensive ? `${mostExpensive.name} (${mostExpensive.price.toLocaleString()} VND)` : '';
+        }
+
+        function searchProduct(event) {
+            event.preventDefault();
+            const searchId = parseInt(document.getElementById('searchId').value);
+            if (!isNaN(searchId)) {
+                filteredProducts = products.filter(p => p.id === searchId);
+                if (filteredProducts.length === 0) {
+                    alert('Không tìm thấy sản phẩm với ID này!');
+                }
+            } else {
+                filteredProducts = [...products];
+            }
+            updateTable();
+            return false;
+        }
+
+        function resetSearch() {
+            document.getElementById('searchForm').reset();
+            filteredProducts = [...products];
+            updateTable();
+        }
+
+        updateTable();
+    </script>
+</body>
+
+</html>
