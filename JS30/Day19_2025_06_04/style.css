@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background: url('anhHN.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    line-height: 1.6;
+    background-color: aliceblue;
+}
+
+header {
+    background-color: -webkit-linear-gradient(left, orange, red);
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 25px;
+}
+
+nav {
+    background: rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color:rgb(197, 197, 197);
+}
+
+footer {
+    background: rgba(34, 34, 34, 0.9);
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+footer a{
+    color: orange;
+    margin: 0 10px;
+    font-size: 25px;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: white;
+}
