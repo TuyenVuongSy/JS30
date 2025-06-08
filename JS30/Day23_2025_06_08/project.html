@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="bản đồ ăn, quán ăn ngon, ẩm thực Hà Nội, Tuyến Vương">
+    <title>Bản Đồ Ăn - Tuyến Vương</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Bản Đồ Ăn</h1>
+        <p>Khám phá quán ăn ngon quanh bạn cùng Tuyến nhé!</p>
+        <nav>
+            <ul>
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#stories">Blog</a></li>
+                <li><a href="#list">Danh Sách Quán</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <section class="search-bar">
+            <input type="text" id="search-box" placeholder="Tìm kiếm món ăn hoặc địa điểm...">
+            <button><i class="fa-solid fa-magnifying-glass"></i>Tìm kiếm</button>
+        </section>
+    </section>
+
+    <section class="filters">
+        <select id="categoryFilter">
+            <option value="">Tất cả Món</option>
+            <option value="Bún">Bún</option>
+            <option value="Phở">Phở</option>
+            <option value="Cơm">Cơm</option>
+            <option value="Bánh">Bánh</option>
+            <option value="Mỳ">Mỳ</option>
+            <option value="Xôi">Xôi</option>
+            <option value="Miến">Miến</option>
+            <option value="Ăn vặt">Ăn vặt</option>
+            <option value="Đồ uống">Đồ uống</option>
+        </select>
+        <select id="areaFilter">
+            <option value="">Tất cả các khu vực</option>
+            <option value="Ba Đình">Ba Đình</option>
+            <option value="Bắc Từ Liêm">Bắc Từ Liêm</option>
+            <option value="Cầu Giấy">Cầu Giấy</option>
+            <option value="Đống Đa">Đống Đa</option>
+            <option value="Hai Bà Trưng">Hai Bà Trưng</option>
+            <option value="Hà Đông">Hà Đông</option>
+            <option value="Hoàn Kiếm">Hoàn Kiếm</option>
+            <option value="Hoàng Mai">Hoàng Mai</option>
+            <option value="Long Biên">Long Biên</option>
+            <option value="Nam Từ Liêm">Nam Từ Liêm</option>
+            <option value="Tây Hồ">Tây Hồ</option>
+            <option value="Thanh Xuân">Thanh Xuân</option>
+        </select>
+    </section>
+
+    <section id="stories">
+        <h2>Chuyện Hà Nội</h2>
+        <div class="story">
+            <h3>Phở - Hồn Cốt Hà Nội</h3>
+            <p>Phở Hà Nội không chỉ là một món ăn, mà là một câu chuyện về sự tinh tế. Nước dùng trong veo, ninh từ xương bò qua hàng giờ, hòa quyện 
+                với hương thơm của thảo quả, hồi, và quế.
+                Người Hà Nội ăn phở không vội, nhấm nháp thìa nước, thưởng thức sợi bánh phở mềm mà dai. Từ Phở Thìn Lò Đúc đến Phở Gà Tạ Hiện,
+                mỗi quán là một chương trong cuốn sách ẩm thực Thủ đô.
+            </p>
+            <a href="chitiet-pho.html" class="read-more">Đọc thêm</a>
+        </div>
+        <div class="story">
+            <h3>Bún Chả - Hương Vị Phố Cổ</h3>
+            <p>Đi dọc phố cổ Hoàn Kiếm, mùi khói than hoa từ những quán bún chả như kéo chân người lữ khách. Chả nướng vàng ươm, ăn cùng nước mắm 
+                chua ngọt và đu đủ muối, tạo nên một bản giao hưởng vị giác.
+                Bún Chả Hàng Quạt, một địa chỉ quen thuộc, không chỉ nuôi dưỡng cơ thể mà còn lưu giữ ký ức về một Hà Nội xưa.
+            </p>
+            <a href="chitiet-buncha.html" class="read-more">Đọc thêm</a>
+        </div>
+        <div class="story">
+            <h3>Chả Cá - Tinh Hoa Láng Hạ</h3>
+            <p>Chả Cá Láng Hạ là biểu tưởng của sự cầu kỳ trong ẩm thực Hà Nội. Cá lăng tươi được tẩm ướp nghệ, riềng, rồi chiên vàng trên chả nhỏ 
+                ngay tại bàn.
+                Ăn kèm bún, rau thơm, lạc rang, và mắm tôm đánh sủi bọt, món ăn này kể câu chuyện về sự sáng tạo của người Hà Nội, biến nguyên liệu 
+                đơn sơ thành tuyệt phẩm.
+            </p>
+            <a href="chitiet-chaca.html" class="read-more">Đọc thêm</a>
+        </div>
+        <div class="story">
+            <h3>Cốm - Hương Thu Hà Nội</h3>
+            <p>Cốm, hạt ngọc xanh của mùa thu Hà Nội, là món quà quê gói gọn trong hương đồng nội.
+                Từ làng Vòng, cốm được làm từ lúa nếp non, rang và giã thủ công, giữ được vị ngọt thanh và mùi thơm dịu. Người Hà Nội thưởng thức cốm 
+                với chuối chín, nhâm nhi trong những buổi chiều se lạnh, hay mua cốm gói lá sen làm quà.
+                Cốm không chỉ là thức quà, mà là ký ức tuổi thơ và nét tinh hoa của đất Thăng Long.
+            </p>
+            <a href="chitiet-com.html" class="read-more">Đọc thêm</a>
+        </div>
+        <div class="story">
+            <h3>Phở - Hồn Cốt Hà Nội</h3>
+            <p>Phở Hà Nội không chỉ là một món ăn, mà là một câu chuyện về sự tinh tế. Nước dùng trong veo, ninh từ xương bò qua hàng giờ, hòa quyện 
+                với hương thơm của thảo quả, hồi, và quế.
+                Người Hà Nội ăn phở không vội, nhấm nháp thìa nước, thưởng thức sợi bánh phở mềm mà dai. Từ Phở Thìn Lò Đúc đến Phở Gà Tạ Hiện,
+                mỗi quán là một chương trong cuốn sách ẩm thực Thủ đô.
+            </p>
+            <a href="chitiet-pho.html" class="read-more">Đọc thêm</a>
+        </div>
+        <div class="story">
+            <h3>Bánh Mì - Di Sản Phố Hội</h3>
+            <p>Bánh mì Hà Nội mang hồn Việt trong lớp vỏ giòn rụm, hòa quyện với pate thơm lừng, thịt nguội, rau thơm và chút tương ớt cay nồng.
+                Từ những gánh hàng rong trên phố Lò Sũ đến Bánh mì Bà Dần nổi tiếng, mỗi ổ bánh mì là một câu chuyện về sự giao thoa văn hóa.
+                Người Hà Nội ăn bánh mì mọi lúc, từ bữa sáng vội vã đến bữa xế chiều, như một nét sinh hoạt không thể thiếu.
+            </p>
+            <a href="chitiet-banhmi.html" class="read-more">Đọc thêm</a>
+        </div>
+        <div class="story">
+            <h3>Cà Phê Sáng - Hơi Thở Hà Nội</h3>
+            <p>Cà phê sáng ở Hà Nội không chỉ là thức uống, mà là một nghi thức. Từ quán vỉa hè phố Đinh Liệt đến Cà Phê Giảng cổ kính, người Hà Nội 
+                ngồi bên ly cà phê đen đá, nhâm nhi và ngắm phố phường.
+                Hương cà phê đậm đà hòa cùng tiếng rao báo và tiếng xe cộ, tạo nên một bản nhạc sáng sớm. Cà phê là nơi câu chuyện bắt đầu, là nhịp
+                sống của Thủ đô.
+            </p>
+            <a href="chitiet-caphesang.html" class="read-more">Đọc thêm</a>
+        </div>
+        <div class="story">
+            <h3>Đồ Ăn Vặt - Vị Ngon Phố Phường</h3>
+            <p>Đồ ăn vặt Hà Nội là thế giới của những món nhỏ mà đầy mê hoặc. Nem chua rán ở Tạ Hiện, bánh gối giòn tan ở Hàng Bông, hay ô mai chua
+                ngọt ở Hàng Đường, mỗi món là một ký ức tuổi thơ.
+                Người Hà Nội tụ tập bạn bè, nhâm nhi ăn vặt, trò chuyện rôm rả, làm nên nét sinh động của phố cổ. Ăn vặt không chỉ no bụng, mà còn
+                nuôi dưỡng tâm hồn.
+            </p>
+            <a href="chitiet-doanvat.html" class="read-more">Đọc thêm</a>
+        </div>
+        <div class="story">
+            <h3>Kem - Mát Lạnh Ngày Hè</h3>
+            <p>Kem Hà Nội là ký ức ngọt ngào của những ngày hè oi ả. Từ que kem Tràng Tiền mát lạnh, tan chảy trên đầu lưỡi, đến ly kem dừa Hồ Gươm
+                thơm béo, mỗi vị kem là một niềm vui giản dị.
+                Người Hà Nội, từ trẻ nhỏ đến người lớn, tụ họp dưới bóng cây, thưởng thức kem và kể chuyện đời. Kem không chỉ giải nhiệt, mà còn là
+                sợi dây kết nối những khoảnh khắc yêu thương.
+            </p>
+            <a href="chitiet-kem.html" class="read-more">Đọc thêm</a>
+        </div>
+    </section>
+
+    <section id="list">
+        <h2>Danh Sách Quán Ăn</h2>
+        <div class="place" data-category="Bún" data-area="Hoàn Kiếm">
+            <img src="" alt="Bún Chả Hàng Quạt" loading="lazy">
+            <div class="place-content">
+                <h3>Bún Chả Hàng Quạt</h3>
+                <p>Địa chỉ: 74 Hàng Quạt, Hoàn Kiếm, Hà Nội</p>
+                <p class="rating">4.3/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Phở" data-area="Hai Bà Trưng">
+            <img src="" alt="Phở Thìn Lò Đúc" loading="lazy">
+            <div class="place-content">
+                <h3>Phở Thìn Lò Đúc</h3>
+                <p>Địa chỉ: 13 Lò Đúc, Hai Bà Trưng, Hà Nội</p>
+                <p class="rating">4.3/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Mỳ" data-area="Cầu Giấy">
+            <img src="" alt="Mỳ Vằn Thắn Xuân" loading="lazy">
+            <div class="place-content">
+                <h3>Mỳ Vằn Thắn Xuân</h3>
+                <p>Địa chỉ: 101B3 Tô Hiệu, Cầu Giấy, Hà Nội</p>
+                <p class="rating">4.4/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Đồ uống" data-area="Tây Hồ">
+            <img src="" alt="Matcha Latte" loading="lazy">
+            <div class="place-content">
+                <h3>Matcha Latte</h3>
+                <p>Địa chỉ: 272 Võ Chí Công, Tây Hồ, Hà Nội</p>
+                <p class="rating">4.2/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Bánh" data-area="Hai Bà Trưng">
+            <img src="" alt="Bánh Mì Nem Khoai" loading="lazy">
+            <div class="place-content">
+                <h3>Bánh Mì Nem Khoai</h3>
+                <p>Địa chỉ: 08 ngõ 28 Hương Viên, Hai Bà Trưng, Hà Nội</p>
+                <p class="rating">4.9/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Xôi" data-area="Thanh Xuân">
+            <img src="" alt="Xôi Sườn Cay" loading="lazy">
+            <div class="place-content">
+                <h3>Xôi Sườn Cay</h3>
+                <p>Địa chỉ: 628 Trường Chinh, Thanh Xuân, Hà Nội</p>
+                <p class="rating">4.1/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Mỳ" data-area="Ba Đình">
+            <img src="" alt="Mỳ Gà Tần Cô Biên" loading="lazy">
+            <div class="place-content">
+                <h3>Mỳ Gà Tần Cô Biên</h3>
+                <p>Địa chỉ: ngõ 285 Đội Cấn, Ba Đình, Hà Nội</p>
+                <p class="rating">4.2/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div class="place" data-category="Bánh" data-area="Bắc Từ Liêm">
+            <img src="" alt="Bánh Xèo Thanh Nga" loading="lazy">
+            <div class="place-content">
+                <h3>Bánh Xèo Thanh Nga</h3>
+                <p>Địa chỉ: 18 ngõ 56 Lê Văn Hiến, Đức Thắng, Bắc Từ Liêm, Hà Nội</p>
+                <p class="rating">4.0/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Ăn vặt" data-area="Nam Từ Liêm">
+            <img src="" alt="Chân Gà Nướng A Phương" loading="lazy">
+            <div class="place-content">
+                <h3>Chân Gà Nướng A Phương</h3>
+                <p>Địa chỉ: 22 ngõ 56 Lê Quang Đạo, Nam Từ Liêm, Hà Nội</p>
+                <p class="rating">4.4/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Cơm" data-area="Đống Đa">
+            <img src="" alt="Cơm Tấm Sà Bì Chưởng" loading="lazy">
+            <div class="place-content">
+                <h3>Cơm Tấm Sà Bì Chưởng</h3>
+                <p>Địa chỉ: 86 Nguyễn Văn Tuyết, Trung Liệt, Đống Đa, Hà Nội</p>
+                <p class="rating">4.8/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Phở" data-area="Hà Đông">
+            <img src="" alt="Phở 10 Lý Quốc Sư" loading="lazy">
+            <div class="place-content">
+                <h3>Phở 10 Lý Quốc Sư</h3>
+                <p>Địa chỉ: lô 06 Tố Hữu, Vạn Phúc, Hà Đông, Hà Nội</p>
+                <p class="rating">4.1/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Miến" data-area="Long Biên">
+            <img src="" alt="Miến Trộn Gà Thắng Xoăn" loading="lazy">
+            <div class="place-content">
+                <h3>Miến Trộn Gà Thắng Xoăn</h3>
+                <p>Địa chỉ: 158 Ngọc Lâm, Long Biên, Hà Nội</p>
+                <p class="rating">4.4/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Xôi" data-area="Hoàn Kiếm">
+            <img src="" alt="Xôi Yến" loading="lazy">
+            <div class="place-content">
+                <h3>Xôi Yến</h3>
+                <p>Địa chỉ: 358 Nguyễn Hữu Huân, Lý Thái Tổ, Hoàn Kiếm, Hà Nội</p>
+                <p class="rating">4.1/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Bánh" data-area="Hoàng Mai">
+            <img src="" alt="Bánh Cuốn Thanh Trì Cô Lan" loading="lazy">
+            <div class="place-content">
+                <h3>Bánh Cuốn Thanh Trì Cô Lan</h3>
+                <p>Địa chỉ: 30 Thanh Đàm, Thanh Trì, Hoàng Mai, Hà Nội</p>
+                <p class="rating">4.3/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Ăn vặt" data-area="Cầu Giấy">
+            <img src="" alt="Cốm Làng Vòng Bà Hoản" loading="lazy">
+            <div class="place-content">
+                <h3>Cốm Làng Vòng Bà Hoản</h3>
+                <p>Địa chỉ: 36 ngõ 63 Xuân Thủy, Dịch Vọng Hậu, Cầu Giấy, Hà Nội</p>
+                <p class="rating">4.8/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Phở" data-area="Hai Bà Trưng">
+            <img src="" alt="Phở Thìn Lò Đúc" loading="lazy">
+            <div class="place-content">
+                <h3>Phở Thìn Lò Đúc</h3>
+                <p>Địa chỉ: 13 Lò Đúc, Hai Bà Trưng, Hà Nội</p>
+                <p class="rating">4.3/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Phở" data-area="Hai Bà Trưng">
+            <img src="" alt="Phở Thìn Lò Đúc" loading="lazy">
+            <div class="place-content">
+                <h3>Phở Thìn Lò Đúc</h3>
+                <p>Địa chỉ: 13 Lò Đúc, Hai Bà Trưng, Hà Nội</p>
+                <p class="rating">4.3/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Phở" data-area="Hai Bà Trưng">
+            <img src="" alt="Phở Thìn Lò Đúc" loading="lazy">
+            <div class="place-content">
+                <h3>Phở Thìn Lò Đúc</h3>
+                <p>Địa chỉ: 13 Lò Đúc, Hai Bà Trưng, Hà Nội</p>
+                <p class="rating">4.3/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="place" data-category="Phở" data-area="Hai Bà Trưng">
+            <img src="" alt="Phở Thìn Lò Đúc" loading="lazy">
+            <div class="place-content">
+                <h3>Phở Thìn Lò Đúc</h3>
+                <p>Địa chỉ: 13 Lò Đúc, Hai Bà Trưng, Hà Nội</p>
+                <p class="rating">4.3/5</p>
+                <iframe src="" width="100%" height="150" styler="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="contact">
+        <h2>Liên hệ với Bản Đồ Ăn</h2>
+        <p>Chúng tôi rất mong nhận được ý kiến, đề xuất hoặc câu hỏi của bạn. Hãy để lại thông tin để cùng khám phá ẩm thực Hà Nội</p>
+        <form class="contact-form">
+            <input type="text" id="name" name="name" placeholder="Họ và tên" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="text" id="subject" name="subject" placeholder="Chủ đề" required>
+            <textarea id="message" name="massage" placeholder="Nội dung tin nhắn" required></textarea>
+            <button>Gửi Tin Nhắn</button>
+        </form>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:TuyenVS.ptit@gmail.com">TuyenVS.ptit@gmail.com</a></p>
+            <p>Điện thoại: <a href="tel: +84975035895">+84975035895</a></p>
+            <p>Địa chỉ: số 19, ngách 73/9, Đường Yên Xá, Tân Triều, Thanh Trì, Hà Nội</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>@ 2025 Bản Đồ Ăn - Ăn Là Phải Ngon</p>
+        <div>
+            <a href="https://www.facebook.com/tuyentuoivui2k6"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/vstuynz_502/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/channel/UCNRvTSDM1n4J2-CWdyxJLmA"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@vuongtuyen502"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
